@@ -30,14 +30,16 @@ function talk($content,$name,$api,$apikey='') {
 }
 function baidurobot($content,$bduss){
 	$cookies = "BDUSS={$bduss};";
+	$content=urlencode($content);
 	$re = fetch('https://sp0.baidu.com/yLsHczq6KgQFm2e88IuM_a/s?sample_name=bear_brain&request_query='.$content .'&bear_type=2',$cookies);
-	$re = json_decode($re,1);
+	$re = json_decode($re);
 	
 	
 $content=$re->result_list[0]->result_content;
 $content=json_decode($content);
-
 $content=$content->answer;
+$content=str_replace("小度","滑小稽",$content);
+$content=str_replace("<AGE>","21",$content);
 return $content;
 }
 function xiaoji($content){
@@ -101,7 +103,7 @@ function tuling($content,$key){
 	return $content;
 }
 function simsimi3($content){
-	$re = fetch('http://www.xiaodoubi.com/simsimiapi.php?msg='.$content);
+	$re = fetch('http://api.mrtimo.com/Simsimi.ashx?parm='.$content);
 	return $re;
 }
 function simsimi($content){
