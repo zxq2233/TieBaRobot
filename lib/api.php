@@ -101,7 +101,7 @@ function tuling($content,$key){
 	return $content;
 }
 function simsimi3($content){
-	$re = fetch('http://api.mrtimo.com/Simsimi.ashx?parm='.$content);
+	$re = fetch('http://www.xiaodoubi.com/simsimiapi.php?msg='.$content);
 	return $re;
 }
 function simsimi($content){
